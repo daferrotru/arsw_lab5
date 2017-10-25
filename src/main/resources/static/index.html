@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Blueprints</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet"
+              href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <script src="js/apimock.js"></script>
+        <script src="js/app.js"></script>
+        <style type="text/css">
+
+            h1{
+                text-align: center;
+            }
+
+            form{
+                margin: 20px 0;
+            }
+            form input, button{
+                padding: 5px;
+            }
+            table{
+                width: 100%;
+                margin-bottom: 20px;
+                border-collapse: collapse;
+            }
+            table, th, td{
+                border: 1px solid #cdcdcd;
+            }
+            table th, table td{
+                padding: 10px;
+                text-align: left;
+            }
+        </style>
+
+    </head> 
+    <body onload="app.init()">
+        <h1>Blueprints</h1>
+        <br>
+        <form>
+            <font >Author: </font>
+            <input type="text" name="author" id="author" value="" class="labell" placeholder="Enter a valid Author" />
+            <button type="button" onclick=" app.setPoints(document.getElementById('author').value)" >Get Blueprints</button>
+        </form>
+
+        <div id="main">
+            <div id="left" style="float: left" class="col-md-4"> 
+                <br>
+                <table id="tablaBP" border="1" style="width:50%">
+                    <thead>
+                        <tr>
+                            <th>Blueprint Name</th>
+                            <th>Number of points</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <br>
+                <br>
+                <p id="totalPoints">Total User Points: </p>
+            </div>
+
+            <div id="right" style="float: left">
+                
+                <input type="text" id="bpName" class="labell" placeholder="New Blueprint Name">
+                <input type="button" class="button" value="Create Blueprint" onclick="app.createNewBlueprint(document.getElementById('bpName').value)">
+                
+                <form>
+                    <p id="currentBP">Current Blueprint:</p>
+                    <canvas id="CanvasBP" width="400" height="400" style="border:1px solid #000000;" ></canvas>
+                </form>
+                <button type="button" onclick=" app.update_save()">Save/update</button>
+                <button type="button" onclick="app.deleteBP()">Delete</button>
+            </div>
+        </div>
+    </body>
+</html>

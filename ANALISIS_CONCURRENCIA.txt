@@ -1,0 +1,9 @@
+Daniel Felipe Rodriguez Trujillo
+
+Al hacer el analisis de concurrencia nos podemos dar cuenta que en el caso de que se llegue a implementar con hilos, se podrian presentar condiciones de carrera como:
+- En caso que dos hilos ingresen al mismo tiempo, este podra entrar a modificar o no entrar como debe ser sobre el recurso o lo que se requiera hacer. 
+
+Por lo tanto, las soluciones que se proponen son:
+- Mandar a bloquear los demas hilos en el momento en que uno llegue a entrar a un recurso en especifico syncronizando los metodos que requieren agregar algo al recurso.
+- Volver el map concurrente(ConcurrentHashMap)
+
